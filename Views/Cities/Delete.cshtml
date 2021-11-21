@@ -1,0 +1,50 @@
+﻿@model AuthStore.Models.City
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="app-main__inner">
+    <div class="card-body">
+        <div class="row">
+            <div class="card bg-deep-blue">
+                <div class="card-header bg-primary text-uppercase text-center text-white">
+                    <h1 class="bg-gradient-danger">Delete: </h1>
+                    <h3>Are you sure you want to delete this City?</h3>
+                </div>
+                <div class="container mt-2">
+
+                    <table class="table">
+                        <thead class="bg-deep-blue">
+                            <tr>
+                                <th>City Name</th>
+                                <th>City Abbreviation </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(model => model.CityName)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(model => model.CityAbbr)
+                                </td>
+
+                                <td>
+                                    <form asp-action="Delete">
+                                        <input type="hidden" asp-for="CityId" />
+                                        <input type="submit" value="Delete" class="btn btn-outline-danger" />
+                                        <a asp-action="Index" class="btn btn-outline-danger">Back to List</a>
+                                    </form>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

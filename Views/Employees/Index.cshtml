@@ -1,0 +1,71 @@
+﻿@model IEnumerable<AuthStore.Models.Employee>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="app-main__inner">
+    <div class="card-body">
+        <div class="row">
+            <div class="card bg-deep-blue">
+                <div class="card-header bg-primary text-uppercase text-center text-white">
+                    <h4><a asp-action="Create" class="btn btn btn-light">Create New</a>  Employee</h4>
+                </div>
+                <div class="container mt-2">
+                    <table class="table">
+                        <thead class="bg-deep-blue">
+                            <tr>
+                                <th>Emp No.</th>
+                                <th>Name</th>
+                                <th>DOB</th>
+                                <th>HiringDate</th>
+                                <th>GrossSalary</th>
+                                <th>NetSalary</th>
+                                <th>Department</th>
+                                <th>City</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.EmployeeNumber)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.EmployeeName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.DOB)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.HiringDate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.GrossSalary)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NetSalary)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Department.DepartmentName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.City.CityName)
+                                    </td>
+
+                                    <td>
+                                        <partial name="_ButtonPartial" model="@item.EmployeeId" />
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

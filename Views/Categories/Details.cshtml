@@ -1,0 +1,43 @@
+﻿@model AuthStore.Models.Category
+
+@{
+    ViewData["Title"] = "Details";
+}
+<div class="app-main__inner">
+    <div class="card-body">
+        <div class="row">
+            <div class="card bg-deep-blue">
+                <div class="card-header bg-primary text-uppercase text-center text-white">
+                    <h4>Details Category</h4>
+                </div>
+                <div class="container mt-2">
+
+                    <table class="table">
+                        <thead class="bg-deep-blue">
+                            <tr>
+                                <th>Category Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(model => model.CategoryName)
+                                </td>
+
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@Model.CategorId" class="btn btn btn-outline-info">Edit</a>
+                                </td>
+                                <td>
+                                    <a asp-action="Index" class="btn btn-danger">Back to List</a>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

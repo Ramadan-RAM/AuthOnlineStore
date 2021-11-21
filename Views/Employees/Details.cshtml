@@ -1,0 +1,73 @@
+﻿@model AuthStore.Models.Employee
+
+@{
+    ViewData["Title"] = "Details";
+}
+<div class="app-main__inner">
+    <div class="card-body">
+        <div class="row">
+            <div class="card bg-deep-blue">
+                <div class="card-header bg-primary text-uppercase text-center text-white">
+                    <h4>Details Employee</h4>
+                </div>
+                <div class="container mt-2">
+
+                    <table class="table">
+                        <thead class="bg-deep-blue">
+                            <tr>
+                                <th>Emp No.</th>
+                                <th>Name</th>
+                                <th>DOB</th>
+                                <th>HiringDate</th>
+                                <th>GrossSalary</th>
+                                <th>NetSalary</th>
+                                <th>Department</th>
+                                <th>City</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => Model.EmployeeNumber)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => Model.EmployeeName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => Model.DOB)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => Model.HiringDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => Model.GrossSalary)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => Model.NetSalary)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => Model.Department.DepartmentName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => Model.City.CityName)
+                                </td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@Model.EmployeeId" class="btn btn btn-outline-info">Edit</a>
+                                </td>
+                                <td>
+                                    <a asp-action="Index" class="btn btn-danger">Back</a>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

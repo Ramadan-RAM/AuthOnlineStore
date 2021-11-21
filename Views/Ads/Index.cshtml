@@ -1,0 +1,44 @@
+﻿@model IEnumerable<AuthStore.Models.Ads>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="app-main__inner">
+    <div class="card-body">
+        <div class="row">
+            <div class="card bg-deep-blue">
+                <div class="card-header bg-primary text-uppercase text-center text-white">
+                    <h4><a asp-action="Create" class="btn btn btn-light">Create New</a>  Ads</h4>
+                </div>
+                <div class="container mt-2">
+
+                    <table class="table">
+                        <thead class="bg-deep-blue">
+                            <tr>
+                                <th>Image Ads</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <img class="img fa-box" style="width: 250px; height: 250px; " src="~/ImgAds/@item.ImageUrl" />
+                                        @*@Html.DisplayFor(modelItem => item.ImageUrl)*@
+                                    </td>
+
+
+
+                                    <td>
+                                        <partial name="_ButtonPartial" model="@item.AdsId" />
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+﻿@model AuthStore.Models.Department
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="app-main__inner">
+    <div class="col-11 max-auto pt-0">
+        <div class="card">
+            <div class="card-header bg-primary text-uppercase text-center text-white">
+                <h4>Create Category</h4>
+            </div>
+            <div class="card-body bg-deep-blue">
+                <form enctype="multipart/form-data" asp-action="Create">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group">
+                                <label asp-for="DepartmentName" class="control-label"></label>
+                                <input asp-for="DepartmentName" class="form-control" />
+                                <span asp-validation-for="DepartmentName" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="DepartmentAbbr" class="control-label"></label>
+                                <input asp-for="DepartmentAbbr" class="form-control" />
+                                <span asp-validation-for="DepartmentAbbr" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-12 btn-group">
+                            <div class="col-6 form-group text-right p-2">
+                                <a asp-action="Index" class="btn btn-outline-danger">Back to List</a>
+                            </div>
+
+                            <div class="col-6 form-group text-left p-2">
+                                <input type="submit" value="Create" class="btn btn-outline-primary" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

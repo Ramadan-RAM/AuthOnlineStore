@@ -1,0 +1,101 @@
+﻿@model AuthStore.Models.Employee
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<div class="app-main__inner">
+    <div class="col-11 max-auto pt-0">
+        <div class="card">
+            <div class="card-header bg-primary text-uppercase text-center text-white">
+                <h4>Edit Employee</h4>
+            </div>
+            <div class="card-body bg-deep-blue">
+                <form enctype="multipart/form-data" asp-action="Edit">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="EmployeeId" />
+                            <div class="form-group">
+                                <label asp-for="EmployeeNumber" class="control-label"></label>
+                                <input asp-for="EmployeeNumber" class="form-control" />
+                                <span asp-validation-for="EmployeeNumber" class="text-danger"></span>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <label asp-for="EmployeeName" class="control-label"></label>
+                            <input asp-for="EmployeeName" class="form-control" />
+                            <span asp-validation-for="EmployeeName" class="text-danger"></span>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <label asp-for="DOB" class="control-label"></label>
+                            <input asp-for="DOB" class="form-control" />
+                            <span asp-validation-for="DOB" class="text-danger"></span>
+                        </div>
+
+
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="HiringDate" class="control-label"></label>
+                                <input asp-for="HiringDate" class="form-control" />
+                                <span asp-validation-for="HiringDate" class="text-danger"></span>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="GrossSalary" class="control-label"></label>
+                                <input asp-for="GrossSalary" class="form-control" />
+                                <span asp-validation-for="GrossSalary" class="text-danger"></span>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="NetSalary" class="control-label"></label>
+                                <input asp-for="NetSalary" class="form-control" />
+                                <span asp-validation-for="NetSalary" class="text-danger"></span>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Department</label>
+                                <select asp-for="DepartmentId" class="form-control" asp-items="ViewBag.DepartmentId"></select>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label  class="control-label">City</label>
+                                <select asp-for="CityId" class="form-control" asp-items="ViewBag.CityId"></select>
+                            </div>
+                        </div>
+
+                        <div class="col-12 btn-group">
+                            <div class="col-6 form-group text-right p-2">
+                                <a asp-action="Index" class="btn btn-outline-danger">Back to List</a>
+                            </div>
+
+                            <div class="col-6 form-group text-left p-2">
+                                <input type="submit" value="Update" class="btn btn-outline-success" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

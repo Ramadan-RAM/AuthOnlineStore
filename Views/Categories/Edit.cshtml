@@ -1,0 +1,44 @@
+﻿@model AuthStore.Models.Category
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="app-main__inner">
+    <div class="col-11 max-auto pt-0">
+        <div class="card">
+            <div class="card-header bg-primary text-uppercase text-center text-white">
+                <h4>Edit Category</h4>
+            </div>
+            <div class="card-body bg-deep-blue">
+                <form enctype="multipart/form-data" asp-action="Edit">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="CategorId" />
+                            <div class="form-group">
+                                <label asp-for="CategoryName" class="control-label"></label>
+                                <input asp-for="CategoryName" class="form-control" />
+                                <span asp-validation-for="CategoryName" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-12 btn-group">
+                            <div class="col-6 form-group text-right p-2">
+                                <a asp-action="Index" class="btn btn-danger">Back to List</a>
+                            </div>
+
+                            <div class="col-6 form-group text-left p-2">
+                                <input type="submit" value="Update" class="btn btn-outline-success" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

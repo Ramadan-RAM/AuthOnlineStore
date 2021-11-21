@@ -1,0 +1,71 @@
+﻿@model AuthStore.Models.Product
+
+@{
+    ViewData["Title"] = "Details";
+}
+<div class="app-main__inner">
+    <div class="card-body">
+        <div class="row">
+            <div class="card bg-deep-blue">
+                <div class="card-header bg-primary text-uppercase text-center text-white">
+                    <h4>Details Product</h4>
+                </div>
+                <div class="container mt-2">
+
+                    <table class="table">
+                        <thead class="bg-deep-blue">
+                            <tr>
+                                <th>Image</th>
+                                <th>Code</th>
+                                <th>Name</th>
+                                <th>Quantity</th>
+                                <th>Cost</th>
+                                <th>Price</th>
+                                <th>Description</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                         
+                                <tr>
+                                    <td>
+                                        <img class="img fa-box" style="width: 100px; height: 100px;" src="~/Images/@Model.ImageUrl" />
+                                        @*@Html.DisplayNameFor(model => model.ImageUrl)*@
+                                    </td>
+                                    <td>
+                                        @Html.DisplayNameFor(model => model.ProductCode)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayNameFor(model => model.ProductName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayNameFor(model => model.Quantity)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayNameFor(model => model.Cost)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayNameFor(model => model.Price)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayNameFor(model => model.Description)
+                                    </td>
+
+                                    <td>
+                                        <a asp-action="Edit" asp-route-id="@Model.ProductId" class="btn btn btn-outline-info">Edit</a>
+                                    </td>
+                                    <td>
+                                        <a asp-action="Index" class="btn btn-danger">Back to List</a>
+                                    </td>
+                                   
+                                </tr>
+                           
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>

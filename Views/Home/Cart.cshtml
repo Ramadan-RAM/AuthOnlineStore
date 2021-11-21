@@ -1,0 +1,53 @@
+﻿@using AuthStore.Models
+@model List<Product>
+@{ ViewData["Title"] = "Cart"; }
+
+<div class="app-main__inner">
+
+    <div class="row">
+       
+        <div class="container mt-2">
+            <h2 style="color: white; text-align: center">Your Cart</h2>
+            <table class="table table-striped border" id="myTable">
+                <thead class="bg-deep-blue">
+                    <tr class="table-info">
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Product Code</th>
+                        <th>Category Name</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+        <tr>
+            <td>
+                <img class="img fa-box" src="~/Images/@item.ImageUrl" style=" width: 200px; height:150px;" />
+            </td>
+            <td>@item.ProductName</td>
+            <td>@item.Price</td>
+            <td>@item.ProductCode</td>
+            <td>@item.Category.CategoryName</td>
+            <td>
+                <a asp-area="" asp-action="Remove" asp-controller="Home" asp-route-id="@item.ProductId" class="btn btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                </a>
+            </td>
+        </tr>
+}
+                </tbody>
+            </table>
+            <div class="row">
+                <div class="col-6">
+                    <a asp-action="Index" asp-controller="Home" class="btn btn-success">Back to Home</a>
+                </div>
+                <div class="col-6 text-right">
+                    <h3 style="color:white" >Total Amount: @Model.Sum(c => c.Price) </h3>
+                    <a asp-area="" asp-action="Checkout" asp-controller="Order" class="btn btn-info">Process to Checkout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

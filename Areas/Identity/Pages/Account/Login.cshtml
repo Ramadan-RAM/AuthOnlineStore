@@ -1,0 +1,67 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+
+<div class="app-main__inner">
+    <div class="col-11 max-auto pt-0">
+        <div class="card">
+            <div class="card-header bg-primary text-uppercase text-center text-white">
+                <h4>Login</h4>
+            </div>
+            <div class="card-body bg-deep-blue">
+                <div class="row">
+                    <div class="card-body">
+                        <div class="card-header pb-0 text-left bg-transparent">
+                            <h3 class="font-weight-bolder text-info text-gradient">Welcome back (^_^)</h3>
+                            <p class="mb-0">Enter your email or UserName and password to Log in</p>
+                        </div>
+                        <section>
+                            <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                               
+                                <div asp-validation-summary="All" class="text-danger"></div>
+                                <div class="col-md-6">
+                                    <label asp-for="Input.UserName"></label>
+                                    <input asp-for="Input.UserName" class="form-control"  placeholder="RAM" />
+                                    <span asp-validation-for="Input.UserName" class="text-danger"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label asp-for="Input.Password"></label>
+                                        <input asp-for="Input.Password" class="form-control"  placeholder="Rm#1234567"/>
+                                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="checkbox">
+                                            <label asp-for="Input.RememberMe">
+                                                <input asp-for="Input.RememberMe" />
+                                                @Html.DisplayNameFor(m => m.Input.RememberMe)
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 btn-group">
+                                    <div class="col-6 form-group text-center p-2">
+                                        <button type="submit" class="btn btn-primary">Log in</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </section>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

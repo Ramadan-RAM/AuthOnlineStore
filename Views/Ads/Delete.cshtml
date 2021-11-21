@@ -1,0 +1,47 @@
+﻿@model AuthStore.Models.Ads
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="app-main__inner">
+    <div class="card-body">
+        <div class="row">
+            <div class="card bg-deep-blue">
+                <div class="card-header bg-primary text-uppercase text-center text-white">
+                    <h1 class="bg-gradient-danger">Delete: </h1>
+                    <h3>Are you sure you want to delete this Ads?</h3>
+                </div>
+                <div class="container mt-2">
+
+                    <table class="table">
+                        <thead class="bg-deep-blue">
+                            <tr>
+                                <th>ImageUrl</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td>
+                                    <img class="img fa-box" style="width: 250px; height: 250px;" src="~/ImgAds/@Model.ImageUrl" />
+                                    @*@Html.DisplayNameFor(model => model.ImageUrl)*@
+                                </td>
+                               
+
+                                <td>
+                                    <form asp-action="Delete">
+                                        <input type="hidden" asp-for="AdsId" />
+                                        <input type="submit" value="Delete" class="btn btn-outline-danger" />
+                                        <a asp-action="Index" class="btn btn-outline-danger">Back to List</a>
+                                    </form>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

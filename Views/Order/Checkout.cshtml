@@ -1,0 +1,156 @@
+﻿@model AuthStore.Models.Order
+@using AuthStore.Utility
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    ViewData["Title"] = "Checkout";
+}
+@{
+    List<Product> products = HttpContextAccessor.HttpContext.Session.Get<List<Product>>("products");
+
+    if (products == null)
+    {
+        products = new List<Product>();
+    }
+}
+<h4></h4>
+<div class="app-main__inner">
+    <div class="col-11 max-auto pt-0">
+        <div class="card">
+            <div class="card-header bg-primary text-uppercase text-center text-white">
+                <h4>Order Details</h4>
+            </div>
+            <div class="card-body bg-deep-blue">
+                <form asp-action="Checkout" method="post" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-6">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group row">
+                                <div class="col-4">
+                                    <label asp-for="Name"></label>
+                                </div>
+                                <div class="col-8">
+                                    <input type="hidden" asp-for="Id" />
+                                    <input asp-for="Name" class="form-control" />
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-4">
+                                    <label asp-for="PhoneNo"></label>
+                                </div>
+                                <div class="col-8">
+                                    <input asp-for="PhoneNo" class="form-control" />
+                                    <span asp-validation-for="PhoneNo" class="text-danger"></span>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-4">
+                                    <label asp-for="Address"></label>
+                                </div>
+                                <div class="col-8">
+                                    <input asp-for="Address" class="form-control" />
+                                    <span asp-validation-for="Address" class="text-danger"></span>
+                                </div>
+
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-4">
+                                    <label asp-for="Email"></label>
+                                </div>
+                                <div class="col-8">
+                                    @*<select asp-for="ProductTypeId" asp-items="ViewBag.productTypeId" class="form-control"></select>*@
+                                    <input asp-for="Email" class="form-control" />
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-4">
+                                    <label asp-for="OrderDate"></label>
+                                </div>
+                                <div class="col-8">
+                                    @*<select asp-for="SpecialTagId" asp-items="ViewBag.TagId" class="form-control"></select>*@
+                                    <input asp-for="OrderDate" type="date" class="form-control" />
+                                    <span asp-validation-for="OrderDate" class="text-danger"></span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-6">
+                            <table class="table table-striped border" id="myTable">
+                                <thead class="bg-deep-blue">
+                                    <tr class="table-info">
+                                        <th>Image</th>
+                                        <th>Name</th>
+                                        <th>Price</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in products)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <img class="img fa-box" src="~/Images/@item.ImageUrl" style="width: 150px; height: 100px; " />
+                                            </td>
+                                            <td>@item.ProductName</td>
+                                            <td>@item.Price</td>
+
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+
+                            <div class="text-right">
+                                <div class="form-group row">
+                                    <div class="col-4">
+                                        <label asp-for="TotalPrice"></label>
+                                    </div>
+                                    <div class="col-8">
+                                        <input asp-for="TotalPrice" value="@products.Sum(c => c.Price)" readonly="readonly" class="form-control calc-display" />
+
+                                        <span asp-validation-for="TotalPrice" class="text-danger"></span>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group text-right">
+                                    <input type="submit" value="Place Order" class="btn btn-success" />
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+
+        function insert(num) {
+            $('.calc-display').val($('.calc-display').val() + num);
+        }
+
+        $(document).ready(function () {
+            $("#OrderDate").datepicker({
+                showAnim: "slide",
+                changeMonth: true,
+                changeYear: true
+            });
+        });
+    </script>
+
+}
