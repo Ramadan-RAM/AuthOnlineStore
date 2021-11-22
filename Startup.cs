@@ -96,7 +96,7 @@ namespace AuthStore
                       name: "default",
                       pattern: "{controller=Home}/{action=Index}/{id?}");
                   endpoints.MapRazorPages();
-                  _ = endpoints.MapHub<ChatHub>("/chathub");
+                  _ = endpoints.MapHub<ChatHub>("/chatHub");
               });
         }
     }

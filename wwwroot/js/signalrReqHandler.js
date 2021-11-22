@@ -1,8 +1,9 @@
-﻿const { signalR } = require("./signalr/dist/browser/signalr");
+﻿
+var connection = new signalR.HubConnectionBuilder()
+    .withUrl('/chatHub')
+    .build();
 
-var connection = new signalR.HubConnectionBuilder().withUrl("/chathub").build();
-
-connection.on("ReceiveMessage", addMessageToChat);
+connection.on('ReceiveMessage', addMessageToChat);
 
 connection.start()
     .catch(error => {
@@ -10,5 +11,5 @@ connection.start()
     });
 
 function sendMessageToHub(messagess) {
-    connection.invoke("SendMessage", messagess);
+    connection.invoke('SendMessage', messagess);
 }
