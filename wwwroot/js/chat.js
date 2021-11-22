@@ -1,4 +1,4 @@
-﻿class Messagess {
+﻿class Message {
     constructor(username, text, when) {
         this.userName = username;
         this.text = text;
@@ -10,12 +10,16 @@
 const username = userName;
 const textInput = document.getElementById('messageText');
 const whenInput = document.getElementById('when');
-const chat = document.getElementById('site');
+const chat = document.getElementById('chat');
 const messagesQueue = [];
 
 document.getElementById('submitButton').addEventListener('click', () => {
-    var currentDate = new Date();
-    whenInput.value = currentDate.getDate();
+    var currentdate = new Date();
+    when.innerHTML =
+        (currentdate.getMonth() + 1) + "/"
+        + currentdate.getDate() + "/"
+        + currentdate.getFullYear() + " "
+        + currentdate.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
 });
 
 function clearInputField() {
@@ -26,29 +30,32 @@ function clearInputField() {
 function sendMessage() {
     let text = messagesQueue.shift() || "";
     if (text.trim() === "") return;
-
+    
     let when = new Date();
-    let messagess = new Messagess(username, text, when);
-    sendMessageToHub(messagess);
+    let message = new Message(username, text);
+    sendMessageToHub(message);
 }
 
-function addMessageToChat(messagess) {
-    let isCurrentUserMessage = messagess.userName === username;
+function addMessageToChat(message) {
+    let isCurrentUserMessage = message.userName === username;
 
     let container = document.createElement('div');
     container.className = isCurrentUserMessage ? "container darker" : "container";
 
     let sender = document.createElement('p');
     sender.className = "sender";
-    sender.innerHTML = messagess.userName;
-    console.log(sender);
+    sender.innerHTML = message.userName;
     let text = document.createElement('p');
-    text.innerHTML = messagess.text;
+    text.innerHTML = message.text;
 
     let when = document.createElement('span');
     when.className = isCurrentUserMessage ? "time-left" : "time-right";
-    var currentDate = new Date();
-    when.innerHTML = currentDate.getDate();
+    var currentdate = new Date();
+    when.innerHTML = 
+        (currentdate.getMonth() + 1) + "/"
+        + currentdate.getDate() + "/"
+        + currentdate.getFullYear() + " "
+        + currentdate.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
 
     container.appendChild(sender);
     container.appendChild(text);

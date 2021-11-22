@@ -8,7 +8,7 @@ namespace AuthStore.Hubs
     {
         public async Task SendMessage(Messagess messagess)
         {
-            await Clients.All.SendAsync("ReceiveMessage", messagess);
+            await Clients.All.SendAsync("receiveMessage", messagess);
         }
     }
 }

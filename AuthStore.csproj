@@ -29,7 +29,6 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\ImgAds\" />
-    <Folder Include="wwwroot\lib\aspnet\signalr\dist\browser\" />
     <Folder Include="wwwroot\Users\" />
   </ItemGroup>
 
@@ -40,6 +39,14 @@
     <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map" />
     <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.css.map" />
     <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map" />
     <None Include="wwwroot\lib\bootstrap\LICENSE" />
     <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
     <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
@@ -49,7 +56,15 @@
     <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" />
     <None Include="wwwroot\lib\jquery-validation\LICENSE.md" />
     <None Include="wwwroot\lib\jquery\dist\jquery-unobtrusive-ajax.min.js" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.js" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.min.js" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.min.map" />
     <None Include="wwwroot\lib\jquery\dist\jquery.unobtrusive-ajax.min.js" />
+    <None Include="wwwroot\lib\signalr\signalr.min.js" />
+    <None Include="wwwroot\signalr\signalr.js" />
+    <None Include="wwwroot\signalr\signalr.js.map" />
+    <None Include="wwwroot\signalr\signalr.min.js" />
+    <None Include="wwwroot\signalr\signalr.min.js.map" />
   </ItemGroup>
 
 </Project>
