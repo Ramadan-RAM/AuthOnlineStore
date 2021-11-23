@@ -58,10 +58,6 @@
     <None Include="wwwroot\lib\jquery\dist\jquery.js" />
     <None Include="wwwroot\lib\jquery\dist\jquery.min.js" />
     <None Include="wwwroot\lib\jquery\dist\jquery.min.map" />
-    <None Include="wwwroot\signalr\signalr.js" />
-    <None Include="wwwroot\signalr\signalr.js.map" />
-    <None Include="wwwroot\signalr\signalr.min.js" />
-    <None Include="wwwroot\signalr\signalr.min.js.map" />
   </ItemGroup>
 
 </Project>

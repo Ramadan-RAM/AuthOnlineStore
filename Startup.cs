@@ -94,7 +94,7 @@ namespace AuthStore
               {
                   endpoints.MapControllerRoute(
                       name: "default",
-                      pattern: "{controller=Home}/{action=Index}/{id?}");
+                      pattern: "{controller=Messagesses}/{action=Index}/{id?}");
                   endpoints.MapRazorPages();
                   _ = endpoints.MapHub<ChatHub>("/Messagesses/Index");
               });
