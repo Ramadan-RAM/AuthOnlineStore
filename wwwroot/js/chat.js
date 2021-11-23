@@ -1,4 +1,4 @@
-﻿class Message {
+﻿class Messagess {
     constructor(username, text, when) {
         this.userName = username;
         this.text = text;
@@ -32,21 +32,21 @@ function sendMessage() {
     if (text.trim() === "") return;
     
     let when = new Date();
-    let message = new Message(username, text);
-    sendMessageToHub(message);
+    let messagess = new Messagess(username, text);
+    sendMessageToHub(messagess);
 }
 
-function addMessageToChat(message) {
-    let isCurrentUserMessage = message.userName === username;
+function addMessageToChat(messagess) {
+    let isCurrentUserMessage = messagess.userName === username;
 
     let container = document.createElement('div');
     container.className = isCurrentUserMessage ? "container darker" : "container";
 
     let sender = document.createElement('p');
     sender.className = "sender";
-    sender.innerHTML = message.userName;
+    sender.innerHTML = messagess.userName;
     let text = document.createElement('p');
-    text.innerHTML = message.text;
+    text.innerHTML = messagess.text;
 
     let when = document.createElement('span');
     when.className = isCurrentUserMessage ? "time-left" : "time-right";
