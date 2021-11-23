@@ -33,6 +33,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\js\chat.js" />
+    <None Include="wwwroot\js\chat.min.js" />
+    <None Include="wwwroot\js\signalrReqHandler.js" />
+    <None Include="wwwroot\js\signalrReqHandler.min.js" />
+    <None Include="wwwroot\js\signrReqHandler.js" />
+    <None Include="wwwroot\js\site.js" />
     <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
     <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
     <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map" />
@@ -58,6 +64,8 @@
     <None Include="wwwroot\lib\jquery\dist\jquery.js" />
     <None Include="wwwroot\lib\jquery\dist\jquery.min.js" />
     <None Include="wwwroot\lib\jquery\dist\jquery.min.map" />
+    <None Include="wwwroot\lib\jquery\jquery-unobtrusive-ajax.min.js" />
+    <None Include="wwwroot\lib\jquery\jquery.unobtrusive-ajax.min.js" />
   </ItemGroup>
 
 </Project>
