@@ -13,7 +13,7 @@
         products = new List<Product>();
     }
 }
-<h4></h4>
+
 <div class="app-main__inner">
     <div class="col-11 max-auto pt-0">
         <div class="card">
@@ -115,26 +115,21 @@
                                     </div>
                                     <div class="col-8">
                                         <input asp-for="TotalPrice" value="@products.Sum(c => c.Price)" readonly="readonly" class="form-control calc-display" />
-
                                         <span asp-validation-for="TotalPrice" class="text-danger"></span>
                                     </div>
-
                                 </div>
-
                                 <div class="form-group text-right">
                                     <input type="submit" value="Place Order" class="btn btn-success" />
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
                 </form>
             </div>
-
         </div>
     </div>
 </div>
+
 
 @section Scripts{
     @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}

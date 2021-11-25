@@ -18,6 +18,12 @@ namespace AuthStore.Controllers
         {
             _context = context;
         }
+
+        public IActionResult ChatDemo()
+        {
+            return View();
+        }
+
         public IActionResult sent()
         {
             return View();

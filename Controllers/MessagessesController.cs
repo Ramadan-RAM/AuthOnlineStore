@@ -8,6 +8,9 @@ using AuthStore.Models;
 using Microsoft.AspNetCore.Identity;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Authorization;
+using System;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace AuthStore.Controllers
 {
@@ -15,14 +18,20 @@ namespace AuthStore.Controllers
     public class MessagessesController : Controller
     {
         private readonly ApplicationDbContext _context;
-
+     
         private readonly UserManager<AppUser> _userManger;
-        //, UserManager<AppUser> userManager
+        
 
         public MessagessesController(ApplicationDbContext context, UserManager<AppUser> userManager)
         {
             _context = context;
             _userManger = userManager;
+           
+        }
+
+        public IActionResult ChatDemo()
+        {
+            return View();
         }
 
         public async Task<IActionResult> Index()
