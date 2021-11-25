@@ -1,4 +1,5 @@
-﻿@model IEnumerable<AuthStore.Models.Product>
+﻿@using AuthStore.Models;
+@model IEnumerable<Product>
 
 @{
     ViewData["Title"] = "Index";
@@ -22,64 +23,67 @@
         </div>
     </form>
     <br />
-    <div class="card-body">
+
+    <div>
         <div class="row">
-            <div class="card bg-deep-blue">
+            <div class="bg-deep-blue">
                 <div class="card-header bg-primary text-uppercase text-center text-white">
                     <h4><a asp-action="Create" class="btn btn btn-light">Create New</a>  Product</h4>
                 </div>
 
                 <div class="container mt-2">
-
-                    <table class="table table-striped border" id="myTable">
-                        <thead class="bg-deep-blue">
-                            <tr class="table-info">
-                                <th>Image</th>
-                                <th>Code</th>
-                                <th>Name</th>
-                                <th>Quantity</th>
-                                <th>Cost</th>
-                                <th>Price</th>
-                                <th>Description</th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model)
-                            {
-                                <tr>
-                                    <td>
-                                        <img class="img fa-box" style="width: 100px; height: 100px;" src="~/Images/@item.ImageUrl" />
-                                        @*@Html.DisplayFor(modelItem => item.ImageUrl)*@
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.ProductCode)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.ProductName)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Quantity)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Cost)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Price)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Description)
-                                    </td>
-
-                                    <td>
-                                        <partial name="_ButtonPartial" model="@item.ProductId" />
-                                    </td>
+                    <br />
+                    <div>
+                        <table class="table table-striped border" id="myTable">
+                            <thead>
+                                <tr class="table-info">
+                                    <th>@Html.DisplayNameFor(c => c.ImageUrl)</th>
+                                    <th>@Html.DisplayNameFor(c => c.ProductCode)</th>
+                                    <th>@Html.DisplayNameFor(c => c.ProductName)</th>
+                                    <th>@Html.DisplayNameFor(c => c.Quantity)</th>
+                                    <th>@Html.DisplayNameFor(c => c.Cost)</th>
+                                    <th>@Html.DisplayNameFor(c => c.Price)</th>
+                                    <th>@Html.DisplayNameFor(c => c.Description)</th>
+                                    <th></th>
+                                    <th></th>
                                 </tr>
-                            }
-                        </tbody>
-                    </table>
+                            </thead>
+
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            <img class="img fa-box" style="width: 100px; height: 100px;" src="~/Images/@item.ImageUrl" />
+                                            @*@Html.DisplayFor(modelItem => item.ImageUrl)*@
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ProductCode)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ProductName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Quantity)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Cost)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Price)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Description)
+                                        </td>
+                                        <td>
+                                            <partial name="_ButtonPartial" model="@item.ProductId" />
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -89,9 +93,9 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 
-        <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/alertify.min.js"></script>
-        <script type="text/javascript">
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/alertify.min.js"></script>
 
+    <script type="text/javascript">
         $(document).ready( function () {
             $('#myTable').DataTable({
                 dom: 'Bfrtip',
@@ -114,5 +118,5 @@
                 alertify.error(del);
             }
         })
-        </script>
-    }
+    </script>
+}

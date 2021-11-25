@@ -1,4 +1,4 @@
-﻿class Message {
+﻿class Messagess {
     constructor(username, text, when) {
         this.userName = username;
         this.text = text;
@@ -32,7 +32,7 @@ function sendMessage() {
     if (text.trim() === "") return;
     
     let when = new Date();
-    let message = new Message(username, text);
+    let message = new Messagess(username, text);
     sendMessageToHub(message);
 }
 

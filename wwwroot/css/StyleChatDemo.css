@@ -28,7 +28,8 @@
 .scroll-area-md {
     height: 800px;
     overflow-y: hidden;
-    border-radius: 10px;
+    border-radius: 20px;
+    
 }
 
 .card {

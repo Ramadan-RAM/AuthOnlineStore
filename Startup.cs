@@ -57,6 +57,7 @@ namespace AuthStore
             services.AddControllersWithViews();
             services.AddSignalR();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+            services.AddApplicationInsightsTelemetry();
         }
 
        
