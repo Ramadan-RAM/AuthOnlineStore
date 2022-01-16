@@ -36,11 +36,11 @@
                                     {
                                         @foreach (var message in Model.OrderBy(m => m.When))
                                         {
-
+                                                @foreach (var message in Model.OrderBy(m => m.When))
                                             string containerClass, timePosition, textAlign, contcolor, offset;
                                             if (userName == message.UserName)
                                             {
-
+                                                    if (userName == message.UserName)
                                                 containerClass = "container darker";
                                                 timePosition = "time-right text-light";
                                                 textAlign = "text-right text-white";
@@ -55,11 +55,11 @@
                                                 contcolor = "bg-light";
                                                 offset = "";
                                             }
-
+                                                        offset = "";
                                             <div class="row">
                                                 <div class="@offset">
                                                     <div class="@containerClass @contcolor">
-
+                                                        <div class="@offset">
                                                         <p class="sender @textAlign">@message.UserName</p>
                                                         <p class="@textAlign">@message.Text</p>
                                                         <span class="@timePosition">@message.When.ToString("M/dd/yyyy hh:MM tt")</span>
@@ -71,9 +71,17 @@
                                 </ul>
                             </div>
                         </div>
+                                    </div>
+                    </div>
+                                    </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
 
                     </div>
-
+                </div>
                 </div>
                 <form asp-action="Create"
                       data-ajax-begin="clearInputField" data-ajax-complete=""
